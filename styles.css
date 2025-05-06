@@ -1,0 +1,266 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+html,body{
+  height:auto;
+  min-height: 100%;
+  width:100%;
+  background: #6a8285;
+  margin:0;
+  padding: 0;
+}
+.container{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  padding: 40px;
+  gap:40px;
+}
+.intro{
+  flex:1 1 400px;
+  text-align: center;
+  color:white;
+}
+.intro h1{
+  font-weight: bold;
+  font-size: 80px;
+  
+}
+.intro p{
+  font-size: 20px;
+  color:#d0dada;
+}
+.ethiopia-mask-wrapper{
+  flex: 1 1 400px;
+  max-width: 700px;
+  position: relative;
+  aspect-ratio: 1/1;
+}
+.slideshow{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  -webkit-mask-image:url('assets/images/ethiopia-shape-mask-1.png');
+  -webkit-mask-repeat:center;
+  -webkit-mask-position:center;
+  -webkit-mask-size:100% 100%;
+  mask-image:url('assets/images/ethiopia-shape-mask-1.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  animation: slide 12s infinite;
+  display: flex;
+}
+.slideshow img{
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  animation:fade 12s infinite;
+  position: absolute;
+  opacity: 0;
+}
+.slideshow img:nth-child(1){
+  animation-delay: 0s;}
+  .slideshow img:nth-child(2){
+    animation-delay: 4s;}
+    .slideshow img:nth-child(3){
+      animation-delay: 8s;}
+
+      @keyframes fade{
+        0%,100% {opacity:0;}
+        10%,30%{opacity:1;}
+      }
+      .ethiopia-outline{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        pointer-events: none;
+      }
+      .places-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+        margin-top: 80px;
+        padding: 40px;
+        align-items: center;
+        justify-items: center;
+        background-color: #5c7477;
+      }
+      
+      .place {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color:  #6a8285;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+        max-width: 420px;
+      }
+      
+      .place:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+      }
+      
+      .place img {
+        width: 300px;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 15px;
+        background-color: #d0dada; /* optional neutral filler */
+      }
+      
+      .place h2{
+        color: white;
+        margin-top: 15px;
+      }
+      .place p{
+        color:#aab8ba;
+        margin-top: 10px;
+      }
+      .learn-more {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: white;
+        color: #5a6f72;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .learn-more:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
+      }
+
+.why-ethiopia {
+  padding: 40px;
+  text-align: center;
+  background-color:#6a8285;
+  color: white;
+}
+.why-ethiopia p{
+  color: #aab8ba;
+}
+.why-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.why-item {
+  flex: 1 1 250px;
+  margin: 20px;
+  padding: 20px;
+  background: #5a6f72;
+  border-radius: 15px;
+  height:250px;
+}
+.why-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+.explore-more-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.explore-more-container img{
+  width:40px;
+  height: 10px;
+  align-items: center;
+}
+.explore-more-button {
+  padding: 12px 24px;
+  background-color: white;
+  color: #5a6f72;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+
+}
+.explore-more-button:hover {
+  background-color: #aab8ba;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+.intro{
+  flex: unset;
+  width: 100%;
+  margin:0;
+}
+.ethiopia-mask-wrapper{
+  flex:unset;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+  .intro h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .intro p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .slideshow{
+    width:100%;
+    height:100%;
+    display:flex;
+    position:relative;
+  }
+.slideshow img{
+ width: 100%;
+ height:100%;
+ object-fit: cover;
+ position:absolute;
+ top:0;
+ left:0;
+}
+
+
+  .place img {
+    width: 100%;
+    height: auto;
+  }
+
+  .places-grid {
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .why-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .why-item {
+    width: 90%;
+  }
+  .explore-more-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
