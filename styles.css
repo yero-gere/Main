@@ -1,0 +1,88 @@
+/* Reset all margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Header with background image */
+.hero-header {
+  background-image: url('https://www.brilliant-ethiopia.com/images/bale-mountains/bale-mountains-cover.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+
+/* Overlay darkens the header for text readability */
+.hero-header .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Vertical navigation below the header */
+.vertical-nav {
+  background-color: #f0f0f0;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.vertical-nav ul {
+  list-style: none;
+}
+
+.vertical-nav li {
+  margin: 10px 0;
+}
+
+.vertical-nav a {
+  text-decoration: none;
+  color: #00796b;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.vertical-nav a:hover {
+  color: #004d40;
+}
+
+/* Content sections */
+main {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+h2 {
+  color: #004d40;
+}
+
+/* Footer matching header overlay color */
+footer {
+  background:#6a8285;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+
+
+
+
