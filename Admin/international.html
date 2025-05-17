@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="national.css">
+    <link rel="stylesheet" href="./totalDesignation.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="main">
+            <h1>International Destination <span id="totalDesignation"></span></h1>
+            <div>
+                <input type="text" placeholder="Search" id="searchText">
+                <button id="searchButton">Search</button>
+                <div>
+                    <button id="addDesignationBtn">Add Destination</button>
+                    <div class="addDesignationSection">
+                        <input type="text" placeholder="Destination Name" id="name">
+                        <input type="text" placeholder="Location" id="location">
+                        <input type="text" placeholder="Description" id="description">
+                        <input type="text" name="type" placeholder="Type (e.g., National/International)" id="type">
+                        <input type="number" placeholder="Price" id="price">
+                        <input type="text" placeholder="Image URL" id="image_url">
+                        <button id="submitBtn">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="desiBody">
+                <!-- append Data -->
+            </div>
+        </div>
+
+        <div class="pagination"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const totalDesignation = document.getElementById('totalDesignation');
+            const searchButton = document.getElementById('searchButton');
+            const searchText = document.getElementById('searchText');
+            const desiBody = document.querySelector('.desiBody');
+            const addDesignationBtn = document.getElementById('addDesignationBtn');
+            const addDesignationSection = document.querySelector('.addDesignationSection');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Fetch destinations based on search
+            function fetchDestinations(search = '') {
+                fetch(`internationalsearch.php?search=${search}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        totalDesignation.textContent = data.length; // Set total number of destinations
+
+                        // Clear previous results
+                        desiBody.innerHTML = '';
+
+                        // Populate data in the UI
+                        data.forEach(destination => {
+                            const div = document.createElement('div');
+                            div.classList.add('destination');
+                            div.innerHTML = `
+                                <h3>${destination.name}</h3>
+                                <p><strong>Location:</strong> ${destination.location}</p>
+                                <p><strong>Description:</strong> ${destination.description}</p>
+                                <p><strong>Price:</strong> $${destination.price}</p>
+                                <p><strong>Type:</strong> ${destination.type}</p>
+                                <img src="../${destination.image_url}" alt="${destination.name}" style="width: 100%; height: auto;">
+                            `;
+                            desiBody.appendChild(div);
+                        });
+                    })
+                    .catch(err => console.error('Error fetching data:', err));
+            }
+
+            // Search functionality
+            searchButton.addEventListener('click', function () {
+                const search = searchText.value;
+                fetchDestinations(search);  // Fetch destinations based on search term
+            });
+
+            // Show the form to add a new destination
+            addDesignationBtn.addEventListener('click', function () {
+                addDesignationSection.style.display = addDesignationSection.style.display === 'none' ? 'block' : 'none';
+            });
+
+            // Handle form submission to add a new destination
+            submitBtn.addEventListener('click', function () {
+                const name = document.getElementById('name').value;
+                const location = document.getElementById('location').value;
+                const description = document.getElementById('description').value;
+                const type = document.getElementById('type').value;
+                const price = document.getElementById('price').value;
+                const image_url = document.getElementById('image_url').value;
+
+                // Send the data to PHP script to insert the new destination
+                fetch('national.php', {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        'name': name,
+                        'location': location,
+                        'description': description,
+                        'type': type,
+                        'price': price,
+                        'image_url': image_url
+                    })
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data);  // Show success or error message
+                        fetchDestinations();  // Refresh the destination list
+                        addDesignationSection.style.display = 'none';  // Hide the form
+                    })
+                    .catch(err => console.error('Error adding destination:', err));
+            });
+
+            // Initially load destinations
+            fetchDestinations();
+        });
+    </script>
+</body>
+
+</html>
+<!-- <script src="./national.js"></script> -->

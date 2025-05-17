@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Sign Up | By Code Info</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./CSS/image/" type="image/x-icon">
+  <link rel="stylesheet" href="login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="signup-box">
+    <h1>Sign Up</h1>
+    <h4>Please Fill The Valid Data</h4>
+    <form action="backend/signuphandler.php" method="POST">
+      <label for="username">User Name</label>
+      <input type="text" placeholder="" name="username" id="username" />
+      <label for="email">Email</label>
+      <input type="email" name="email" placeholder="" id="email" />
+
+      <label for="password"> Password</label>
+      <input type="password" name="password" placeholder="" id="password" />
+      <label for="role">Role</label>
+      <select id="role" name="role">
+        <option value="user">user</option>
+        <option value="admin">admin</option>
+      </select>
+      <input type="submit" value="Submit" />
+      <!-- <closeform></closeform> -->
+    </form>
+    <p>
+      By clicking the Sign Up button,you agree to our <br />
+      <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
+    </p>
+    <p class="para-2">
+      Already have an account? <a href="login.html">Login here</a>
+    </p>
+  </div>
+  <!-- <script>
+    document.querySelector("form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      this.submit();
+    })
+  </script> -->
+  <!--   
+  <script>
+    let form = document.querySelector("form");
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      let user;
+      if (
+        form.username.value == "" ||
+        form.email.value == "" ||
+        form.password.value == ""
+      ) {
+        alert("please fill all the details");
+      } else {
+        const url = "https://mock-api-template-trn5.onrender.com/register";
+        user = {
+          username: form.username.value,
+          password: form.password.value,
+          email: form.email.value,
+        };
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: form.username.value,
+            password: form.password.value,
+            email: form.email.value,
+          }),
+        })
+          .then((res) => {
+            // if (!res.ok) {
+            //   throw Error(res.statusText);
+            // }
+            console.log(res);
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        // console.log(user);
+        users.push(user);
+        localStorage.setItem("users", JSON.stringify(users));
+        form.username.value = "";
+        form.email.value = "";
+        form.password.value = "";
+      }
+    });
+  </script> -->
+</body>
+
+
+</html>

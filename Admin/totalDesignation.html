@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./totalDesignation.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bg">
+
+        <div class="main">
+            <h1>Total Destination: <span id="totalDesignation"></span></h1>
+            <div>
+                <input type="text" placeholder="Search" id="searchWords">
+                <button id="searchBtn">Search</button>
+            </div>
+            <div class="desiBody">
+
+                <!-- append Data -->
+            </div>
+        </div>
+
+        <div class="pagination">
+
+        </div>
+    </div>
+
+
+    <!-- <div class="bg2">
+
+    </div> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const totalDesignation = document.getElementById('totalDesignation');
+            const searchBtn = document.getElementById('searchBtn');
+            const searchWords = document.getElementById('searchWords');
+            const desiBody = document.querySelector('.desiBody');
+            const pagination = document.querySelector('.pagination');
+
+            // Fetch total destinations and data
+            function fetchDestinations(search = '') {
+                fetch(`./totaldestination.php?search=${search}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Display the total number of destinations
+                        totalDesignation.textContent = data.total_destinations;
+
+                        // Display destinations in the table
+                        desiBody.innerHTML = ''; // Clear previous results
+                        data.destinations.forEach(destination => {
+                            const div = document.createElement('div');
+                            div.classList.add('destination');
+                            div.innerHTML = `
+                                <h3>${destination.name}</h3>
+                                <p>Location: ${destination.location}</p>
+                                <p>Price: $${destination.price}</p>
+                            `;
+                            desiBody.appendChild(div);
+                        });
+
+                        // Handle pagination here if needed (e.g., for large datasets)
+                        // Pagination logic would be added here if the dataset is paginated
+                    })
+                    .catch(err => console.error('Error fetching data:', err));
+            }
+
+            // Initially load destinations
+            fetchDestinations();
+
+            // Handle search
+            searchBtn.addEventListener('click', function () {
+                const searchTerm = searchWords.value;
+                fetchDestinations(searchTerm);  // Fetch destinations based on search term
+            });
+        });
+
+    </script>
+</body>
+
+</html>
+<!-- <script src="./totalDesignation.js"></script> -->

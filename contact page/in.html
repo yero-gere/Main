@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Travel Again</title>
+
+  <!-- Google Fonts and Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<header>
+   <!-- Navbar -->
+   <div class="navbar-dynamic">
+    <nav style="background-color:#6a8285">
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Travel Agency</a>
+          <a href="#" data-target="mobile-nav" class="sidenav-trigger right">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#destination">Destination</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#login">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+</header>
+ 
+ <main>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="section section-contact scrollspy form-section">
+    <div class="container contact-form-wrapper">
+      <div class="card-panel grey lighten-3">
+        <h5 class="center-align">Please fill out this form</h5>
+        <form id="contact-form">
+          <div class="input-field">
+            <input type="text" id="name" required />
+            <label for="name">Name</label>
+          </div>
+          <div class="input-field">
+            <input type="email" id="email" required />
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field">
+            <input type="tel" id="phone" />
+            <label for="phone">Phone</label>
+          </div>
+          <div class="input-field">
+            <textarea id="message" class="materialize-textarea" required></textarea>
+            <label for="message">Enter Message</label>
+          </div>
+          <div class="center-align">
+            <button type="submit" class="btn teal">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+ </main>
+
+
+  <!-- Footer -->
+  <footer>
+    
+
+    <p>&copy;                   All right reserved. </p>
+
+    
+  </footer>
+ <!-- Materialize JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+ <!-- Custom JS -->
+ <script src="script.js"></script>
+
+</body>
+</html>

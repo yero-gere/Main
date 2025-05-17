@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login | By Code Info</title>
+  <link rel="stylesheet" href="login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+  <script src="./login.js"></script>
+</head>
+
+<body>
+  <div class="login-box">
+    <h1>Login</h1>
+    <!-- <form>
+        <label>Email</label>
+        <input type="email" placeholder="Email" id="email" />
+        <label>Password</label>
+        <input type="password" placeholder="Password" id="password" />
+        <input id="submitBtn" type="submit" />
+        
+        
+      </form> -->
+
+    <form action="backend/loginhandler.php" method="POST">
+      <label for="email">Email</label>
+      <input type="email" name="email" placeholder="Email" id="email">
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Password" id="password">
+      <label for="role">Role</label>
+      <select id="role" name="role">
+        <option value="user">user</option>
+        <option value="admin">admin</option>
+      </select>
+      <input type="submit">
+    </form>
+    <p class="para-2" style="display: flex">
+      Not have an account? <a href="signup.html">Sign Up Here</a>
+    </p>
+  </div>
+</body>
+
+</html>

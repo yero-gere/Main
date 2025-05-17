@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Page</title>
+  <link rel="stylesheet" href="./booking.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Basic responsive fix */
+    .booking-form input,
+    .booking-form select,
+    .booking-form button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .form-feedback {
+      color: green;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- Header -->
+    <div class="navbar">
+      <div class="logo">
+        <a href="./index.html"><img src="./CSS/image/1-removebg-preview.png" alt="TravelWiz Logo" /></a>
+      </div>
+      <label for="ham-menu" class="ham-menu-bar">
+        <i class="fa fa-bars"></i>
+      </label>
+      <input type="checkbox" id="ham-menu" autocomplete="off" />
+      <ul>
+        <li><a href="./Travel.html">Destination</a></li>
+        <li><a href="./booking.html">Booking</a></li>
+        <li><a href="./About/about.html">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bookingHead">
+    <h1>Explore Recommended Top Destinations</h1>
+  </div>
+  <hr />
+
+  <div class="parentBooking">
+    <div class="sidedesc"></div>
+
+    <div class="mainsectionb">
+      <h2>Book Your Trip</h2>
+      <form action="booking.php" method="POST" class="booking-form">
+        <input type="text" name="name" placeholder="Your Full Name" required minlength="3" />
+        <input type="email" name="email" placeholder="Email Address" required />
+
+        <!-- Replaced text input with dropdown -->
+        <select name="destination" required>
+          <option value="" disabled selected>Select Destination</option>
+          <option value="Paris">Paris</option>
+          <option value="New York">New York</option>
+          <option value="Tokyo">Tokyo</option>
+          <option value="Cape Town">Cape Town</option>
+        </select>
+
+        <input type="date" name="date" min="<?= date('Y-m-d'); ?>" required />
+        <input type="number" name="travelers" min="1" placeholder="Number of Travelers" required />
+        <button type="submit">Book Now</button>
+
+        <!-- Feedback message -->
+        <div class="form-feedback" id="feedback"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="Footer">
+    <div class="footer_top">
+      <div class="call">
+        <img src="./CSS/image/1-removebg-preview.png" alt="TravelWiz" />
+        <h1>TravelWiz</h1>
+      </div>
+      <div class="email">
+        <i class="fa-solid fa-envelope"></i>
+        travelWiz@gmail.com
+      </div>
+    </div>
+    <hr />
+    <div class="Middle_Footer">
+      <div class="Subscribe">
+        <h3>Subscribe To Know Us Better</h3>
+        <div class="seachbox">
+          <input type="email" placeholder="your@gmail.com" />
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+        <p>Get Digital Knowledge Of Places And Updates in your Mailbox</p>
+      </div>
+      <div class="About">
+        <h3>About</h3>
+        <ul>
+          <li>Our Story</li>
+          <li>Careers</li>
+          <li>Sitemap</li>
+        </ul>
+      </div>
+      <div class="Resources">
+        <h3>Resources</h3>
+        <ul>
+          <li>Blog</li>
+          <li>Contact Us</li>
+          <li>travelWiz@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer_bottom">
+      <img src="./CSS/image/1-removebg-preview.png" alt="TravelWiz Logo" />
+      <p>All Rights Reserved For TravelWiz</p>
+      <div class="SocialMedia">
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-linkedin-in"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
